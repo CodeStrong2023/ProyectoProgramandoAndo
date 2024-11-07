@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewData["Title"] = "Nueva Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Estilos{
+
+    <!-- ============================================================
+    =ESTILOS PARA ESTA PAGINA
+    ===============================================================-->
+    <link href="~/vendor/select2/select2.min.css" rel="stylesheet">
+
+    <style>
+        .select2{
+            width: 100% !important;
+        }
+    </style>
+}
+
+
+  <div class="row">
+                      <div class="col-sm-8">
+                          <div class="row">
+                              <div class="col-sm-12">
+                                  <div class="card shadow mb-4">
+                                      <div class="card-header py-3 bg-second-primary">
+                                          <h6 class="m-0 font-weight-bold text-white">Cliente</h6>
+                                      </div>
+                                      <div class="card-body">
+                                          <div class="form-row">
+                                              <div class="form-group col-sm-6">
+                                                  <input type="text" class="form-control form-control-sm" id="txtDocumentoCliente" placeholder="Numero de documento" required>
+                                              </div>
+                                              <div class="form-group col-sm-6">
+                                                  <input type="text" class="form-control form-control-sm" id="txtNombreCliente" placeholder="Nombre completo" required>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-sm-12">
+                                  <div class="card shadow mb-4">
+                                      <div class="card-header py-3 bg-second-primary">
+                                          <h6 class="m-0 font-weight-bold text-white">Productos</h6>
+                                      </div>
+                                      <div class="card-body">
+                                          <div class="form-row">
+                                              <div class="form-group col-sm-12">
+                                                  <select class="form-control form-control-sm" id="cboBuscarProducto" >
+                                                      <option value=""></option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12">
+                                                  <table class="table table-striped table-sm" id="tbProducto">
+                                                      <thead>
+                                                          <tr>
+                                                              <th></th>
+                                                              <th>Producto</th>
+                                                              <th>Cantidad</th>
+                                                              <th>Precio</th>
+                                                              <th>Total</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+
+                                                      </tbody>
+                                                  </table>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                      <div class="col-sm-4">
+
+                          <div class="row">
+                              <div class="col-sm-12">
+                                  <div class="card shadow mb-4">
+                                      <div class="card-header py-3 bg-second-primary">
+                                          <h6 class="m-0 font-weight-bold text-white">Detalle</h6>
+                                      </div>
+                                      <div class="card-body">
+                                          <div class="input-group input-group-sm mb-3">
+                                              <div class="input-group-prepend">
+                                                <label class="input-group-text" for="cboTipoDocumentoVenta">Tipo</label>
+                                              </div>
+                                              <select class="custom-select" id="cboTipoDocumentoVenta">
+                                              </select>
+                                            </div>
+                                          <div class="input-group input-group-sm mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupSubTotal">Sub Total</span>
+                                              </div>
+                                              <input type="text" class="form-control text-right" aria-label="Small" aria-describedby="inputGroupSubTotal" id="txtSubTotal" disabled>
+                                          </div>
+                                          <div class="input-group input-group-sm mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupIGV">IGV(21%)</span>
+                                              </div>
+                                              <input type="text" class="form-control text-right" aria-label="Small" aria-describedby="inputGroupIGV" id="txtIGV" disabled>
+                                          </div>
+                                          <div class="input-group input-group-sm mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupTotal">Total</span>
+                                              </div>
+                                              <input type="text" class="form-control text-right" aria-label="Small" aria-describedby="inputGroupTotal" id="txtTotal" disabled>
+                                          </div>
+                                            <div class="form-group mb-2">
+                                                <button class="btn btn-success btn-sm btn-block" id="btnTerminarVenta">Pagar Efectivo</button>
+                                            </div>
+                                            <div class="form-group mb-0">
+                                                <button class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#paymentModal">Pagar MercadoPago</button>
+                                            </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="amount">Monto:</label>
+                                                    <input type="text" class="form-control" id="amount" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="description">Descripción:</label>
+                                                    <input type="text" class="form-control" id="description" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">Email:</label>
+                                                    <input type="email" class="form-control" id="email" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cardType">Tipo de tarjeta</label>
+                                                    <select class="form-control form-control-sm" id="cardType">
+                                                        <option value="visa">Visa</option>
+                                                        <option value="mastercard">Mastercard</option>
+                                                        <option value="amex">American Express</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cardNumber">Número de Tarjeta:</label>
+                                                    <input type="text" class="form-control" id="cardNumber" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cardholderName">Nombre del Titular:</label>
+                                                    <input type="text" class="form-control" id="cardholderName" required>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="expirationMonth">Mes de Expiración:</label>
+                                                        <input type="number" class="form-control" id="expirationMonth" required>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="expirationYear">Año de Expiración:</label>
+                                                        <input type="number" class="form-control" id="expirationYear" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="securityCode">Código de Seguridad:</label>
+                                                    <input type="text" class="form-control" id="securityCode" required>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-info d-flex align-items-center" id="checkout-btn">Pagar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+
+  @section Scripts{
+                      <!-- ============================================================
+    =SCRIPTS PARA ESTA PAGINA
+    ===============================================================-->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <script src="~/vendor/select2/es.min.js"></script>
+
+    <script src="~/js/vistas/Nueva_Venta.js"></script>
+                    
+  }
