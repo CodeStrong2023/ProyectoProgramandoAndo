@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Estilos{
+    <link rel="stylesheet" href="~/vendor/datatables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/vendor/datatables/extensiones/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="~/vendor/datatables/extensiones/css/buttons.dataTables.min.css">
+
+}
+
+ <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-second-primary">
+            <h6 class="m-0 font-weight-bold text-white">Lista de Productos</h6>
+        </div>
+        <div class="card-body">
+        <div class="row">
+            <div class="col-auto">
+                <a class="btn btn-success text-white d-flex align-items-center" href="@Url.Action("Login", "Acceso")" style="padding: 5px 10px; border-radius: 5px; width: auto;">
+                    <i class="fas fa-user fa-fw mr-2"></i>
+                    Ingresar
+                </a>
+            </div>
+        </div>
+            <hr/>
+            <div class="row">
+                <div class="col-sm-12">
+                        <table class="table table-bordered" id="tbdata" cellspacing="0" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Imagen</th>
+                                    <th>Codigo Barra</th>
+                                    <th>Marca</th>
+                                    <th>Descripcion</th>
+                                    <th>Categoria</th>
+                                    <th>Stock</th>
+                                    <th>Precio</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section Scripts{
+
+<script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script src="~/vendor/datatables/extensiones/js/dataTables.responsive.min.js"></script>
+                        
+<script src="~/vendor/datatables/extensiones/js/dataTables.buttons.min.js"></script>
+    
+<script src="~/vendor/datatables/extensiones/js/buttons.html5.min.js"></script>
+<script src="~/vendor/datatables/extensiones/js/buttons.print.min.js"></script>
+
+<script src="~/js/vistas/Producto_Index.js"></script>
+}
