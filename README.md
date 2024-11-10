@@ -23,18 +23,72 @@
 ## 🧐 Sobre el Proyecto
 Este proyecto es una plataforma de ecommerce, creada con el objetivo de facilitar la compra y venta de productos en línea de manera sencilla y segura. La aplicación permite a los usuarios realizar diferentes acciones que ayudan tanto en la experiencia de compra como en la administración de un negocio en línea.
 
-Las principales funcionalidades de la plataforma incluyen:
+### 1. Dashboard
 
-- **Explorar el catálogo de productos**: Los usuarios pueden ver y navegar por los productos disponibles.
-- **Añadir productos al carrito de compras**: Permite a los clientes seleccionar y agrupar productos que desean adquirir.
-- **Realizar transacciones seguras**: Asegura una experiencia de compra confiable y sencilla.
-- **Gestión administrativa**: Los propietarios pueden actualizar, agregar y eliminar productos, así como consultar reportes de ventas y estadísticas clave del negocio.
+En el dashboard, visualizaremos un resumen gráfico de ventas, ingresos, productos y categorías. También veremos gráficos de ventas de los últimos siete días y un resumen de los productos más vendidos.
+
+### 2. Administración
+
+#### Usuarios
+
+- Mantenedor de usuarios: crear, editar, eliminar usuarios.
+- Envío de códigos de acceso por correo para cambiar la contraseña.
+
+
+### 3. Inventario
+
+#### Categorías
+
+- Mantenedor de categorías: agregar, editar, eliminar categorías.
+
+#### Productos
+
+- Mantenedor de productos: agregar, editar, eliminar productos.
+- Detalle de productos con código de barras, marca, descripción, categoría, stock, precio y estado.
+
+### 4. Ventas
+
+#### Realizar una Nueva Venta
+
+- Agregar productos al carrito y finalizar venta con resumen de precios.
+
+#### Historial de Ventas
+
+- Historial detallado de todas las ventas realizadas.
+- Visualización y descarga de PDF del resumen de venta.
+
+### 5. Reportes
+
+- Búsqueda y exportación de ventas por fechas.
+
+### 6. Restablecer Contraseña
+
+- Opción para que los usuarios recuperen su contraseña olvidada.
+
 
 Estas funciones buscan cubrir las necesidades esenciales de una tienda en línea, optimizando la experiencia tanto para los compradores como para los administradores del sitio.
 
 ## 🤔 Requisitos Previos
 
+Este proyecto utiliza .NET Framework 8.0.200 (Viene incluído en el Visual Studio 17.9.0) o se puede descargar en [este enlace](https://dotnet.microsoft.com/es-es/download/dotnet/8.0).
+
+También utiliza los siguientes programas:
+
+- Visual Studio Community 2022 - 17.9.0, con las siguientes cargas de trabajo instaladas: Desarrollo de ASP.NET y web, Desarrollo de escritorio de .NET y Almacenamiento y procesamiento de datos.
+
+- SQL Server Management Studio 19 o posterior.
+
+- Los paquetes de NuGet y las dependencias necesarias están dentro del proyecto mismo.
+
 ## 💻 Instalación
+
+Para comenzar, clone este repositorio dentro de su máquina local o repositorio local utilizando el siguiente comando:
+
+git clone https://github.com/CodeStrong2023/ProyectoProgramandoAndo.git
+
+Una vez clonado el proyecto, se debe crear una Base de Datos para almacenar los registros pertinentes durante la ejecución de la aplicación.
+
+Para eso, importar la base de datos brindada.
 
 ## 👥 Integrantes
 <table>
