@@ -31,20 +31,6 @@ namespace SistemaVenta.AplicacionWeb.Controllers
             return View();
         }
 
-        public async Task<IActionResult> PDFVenta(string numeroVenta)
-        {
-            
-            VMVenta vmVenta = _mapper.Map<VMVenta>(await _ventaServicio.Detalle(numeroVenta));
-            VMNegocio vmNegocio = _mapper.Map<VMNegocio>(await _negocioServicio.Obtener());
-
-            VMPDFVenta modelo = new VMPDFVenta();
-
-            modelo.negocio = vmNegocio;
-            modelo.venta = vmVenta;
-
-            return View(modelo);
-        }
-
 
 
         public IActionResult RestablecerClave(string clave)

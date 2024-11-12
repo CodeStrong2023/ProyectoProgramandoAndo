@@ -352,7 +352,6 @@ async function terminarVenta(cardType, cardNumber, description) {
 
                 swal("Registrado!", `Numero Venta : ${responseJson.objeto.numeroVenta}`, "success");
                 $("#paymentModal").modal("hide")
-                window.open(`/Venta/MostrarPDFVenta?numeroVenta=${responseJson.objeto.numeroVenta}`, '_blank');
             } else {
                 swal("Lo sentimos!", "No se pudo registrar la venta", "error");
                 $("#paymentModal").modal("hide")
